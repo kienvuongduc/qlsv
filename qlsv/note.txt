@@ -1,0 +1,5 @@
+file index.php tự động chạy nếu truy cập vào thư mục mà không chỉ định file cụ thể
+
+$x = 5;
+echo !empty($x) ? $x : 100; // 5
+echo $x ?? 100;

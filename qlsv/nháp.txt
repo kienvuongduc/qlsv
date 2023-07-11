@@ -1,0 +1,46 @@
+save.php
+
+<?php
+    require "../config.php";
+    require "../connect_DB.php";
+    $name = $_POST["name"];
+    $birthday = $_POST["birthday"];
+    $gender = $_POST["gender"];
+
+    $sql = "INSERT INTO student(name, birthday, gender) VALUES('$name', '$birthday', $gender)";
+    if($conn->query($sql) === TRUE) {
+        header("location: list.php");
+    } else {
+        echo "ERROR: " .$sql . "<br>" . $conn->error;
+    }
+    $conn->close();
+
+    session_start();
+    if($conn->query($sql) === TRUE) {
+        $_SESSION["success"] = " Đã tạo sv thành công";
+    } else {
+        $_SESSION["error"] = "Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    <?php
+    session_start();
+    $message = "";
+    if(!empty($_SESSION["success"])) {
+        $message = $_SESSION["success"];
+        $messageClass = "alert-success";
+    } else if(!empty($_SESSION["error"])) {
+        $message = $_SESSION["error"];
+        $messageClass = "alert-danger";
+    }
+    ?>
+    <?php if($message) { ?>
+    <div class = "alert <?=messageClass?> mt-4"> <?=$message?></div>
+    
+    }
+
+
+    
+
+
+
+?>
