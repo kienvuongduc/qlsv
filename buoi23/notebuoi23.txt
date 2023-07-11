@@ -1,0 +1,95 @@
+$arr1 = array(1,2,3,4);
+echo $arr1;
+$arr1 = [1,2,3,4];
+echo "đây là array 1 " . $arr1;
+echo "<br>";
+
+array 2 chiều:
+$arr2 = array(
+    "nga" => array("toán" => 7, "ly" => 9, "hóa" => 10),
+    "Lan" => array("toán" => 2, "lý" => 3, "hóa" => 4),
+    "Phương" => array("toán => 4, "lý" => 5, "hóa" => 7)
+);
+$size = $arr2;
+
+thêm phần tử 
+$arr3 = [1,2,3,4];
+array_push($arr3, 11);
+var_dump($arr3);
+
+$arr3[] = 11;
+
+lấy phần tử cuối ra khỏi array
+$arr4 = array(1,2 ,3,4);
+$e = array_pop($arr4);
+$e có 1 phần tử là 4
+$arr4 có 3 phần tử 1,2 ,3
+
+thêm 1 phần tử vào đầu array
+$arr5  = array(1,2,3,4);
+array_unshift($arr5, 11);
+Lấy 1 phần tử đầu 
+$e = array_shift($arr5);
+thêm xóa phần tử 
+$e = array_splice($arr5, 2, 2, ["a", "b", "c"]);
+
+kiểm tra phần tử
+if(in_array($e, $arr5))
+
+function f1($a){
+    $a += 5;
+    return $a;
+}
+$x = 6;
+echo f1($x); // hiện 11
+echo $x; // hiện 6
+
+function f2(&$b){ // b và f2 đều trỏ vào y
+    $b += 5;
+    return $b;
+}
+$y = 10;
+echo f2($y); // hiện 15;
+echo $y; // hiện 15
+
+usort($a35, function($arr1, $arr2){
+    if(array_sum($arr1) == array_sum($arr2)){
+        return 0;
+    }
+    return array_sum($arr1) > array_sum($arr2) ? -1:1;
+})
+
+<?php 
+    function isPassed($diem){
+        $toan =$diem["toan"];
+        $ly = $diem["ly"];
+        $hoa = $diem["hoa"];
+        $tongdiem = ($toan + $ly)*2 + $hoa;
+        if($tongdiem >24){
+            return true;
+        }
+        return false;
+    }
+    $d = ["toan"=> 6, "ly"=> 5, "hoa" => 5];
+    echo isPassed($d);
+
+    function passedList($danh_sach_diem_sv){
+        $dsd = [];
+        foreach ($danh_sach_diem_sv as $ten => $diem){
+            if(isPassed($diem)){
+                $dsd[] = $ten;
+            }
+        }
+        return $dsd;
+    }
+
+    $danhSachDiemSV = [
+        "nga" => ["toan" => 7, "ly" => 4, "hoa" => 8.5],
+        "Nam" => ["toan" => 4, "ly" => 9, "hoa" => 3.5],
+        "Nhan" => ["toan" => 1, "ly" => 5, "hoa" => 9.5]
+    ];
+
+    $danhSachDau = passedList($danhSachDiemSV);
+    var_dump($danhSachDau);
+?>
+

@@ -1,0 +1,45 @@
+$a1 = "Nguyen Van Nam"; //chuỗi
+$a0 = ["Nguyen", "Van", "Nam"]; // array
+$str= implode(" ", $a0); //nối các phần tử thành chuỗi
+$str = explode(" ", $a1); // tách chuỗi thành array
+$str = strlen($a1); // độ dài chuỗi
+$str = str_word_count($a1); // đếm số chữ trong chuỗi
+$str = str_replace("Nam", "Nu", $a1); thay phần tử trong chuỗi
+$str = substr($a1, 7, 3); Van
+$str = strstr($a1, "Van"); //Van Nam
+$str = strpos($a1, "Van"); // 7 vị trí chuỗi con 
+$str = strtolower($a1); // nguyen van nam // chuyển thành chữ thường 
+$str = strtoupper($a1); // NGUYEN VAN NAM
+$str = ucfirst($a1);  // Nguyen van nam // chuyển chữ đầu thành in hoa
+$str = lcfirst($a1); //nguyen Van Nam // chữ đầu in thường
+$str = ucword($a1); // Nguyen Van Nam // tất cả chữ đầu in hoa
+$str = trim($a1); //cắt khoảng trắng đầu và cuối chuỗi
+$str = ltrim($a1); // cắt khoảng trắng đầu chuỗi
+$str = rtrim($a1); // cắt khoảng trắng cuối chuỗi
+
+
+$filename = "files/demo.txt";
+$fp = fopen($filename, "r");
+while(!feof($fp)){
+    $c = fgetc($fp);
+    if($c == "\n"){
+        $c = "<br>";
+    }
+    echo $c;
+}
+fclose($fp);
+
+$fp = fopen($filename, "r");
+while(!feof($fp)){
+    $line = fgets($fp);
+    $line = str_replace("\n", "<br>", $line);
+    echo $line;
+}
+
+fclose($fp);
+
+$content = file_get_contents($filename);
+$content = str_replace("\n", "<br>", $content);
+echo $content;
+
+
