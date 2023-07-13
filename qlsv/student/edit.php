@@ -8,8 +8,8 @@
 			$result = $conn->query($sql);
 			$row = $result->fetch_assoc();
 			?>
-			<form action="list.html" method="POST">
-				<input type="hidden" name="id" value="1">
+			<form action="update.php" method="POST">
+				<input type="hidden" name="id" value="<?=$id?>">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-5">
@@ -24,9 +24,9 @@
 							<div class="form-group">
 								<label>Chọn Giới tính</label>
 								<select class="form-control" id="gender" name="gender" required>
-									<option value="0" >Nam</option>
-									<option value="1" selected>Nữ</option>
-									<option value="2" >Khác</option>
+									<option value="0" <?=$row["gender"] == 0 ? "selected": ""?>>Nam</option>
+									<option value="1" <?=$row["gender"] == 1 ? "selected": ""?>>Nữ</option>
+									<option value="2" <?=$row["gender"] == 2 ? "selected": ""?>>Khác</option>
 								</select>
 							</div>
 							<div class="form-group">

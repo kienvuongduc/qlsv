@@ -48,7 +48,7 @@
             <td><?= getGenderName($row["gender"]) ?></td>
             <td>5</td>
             <td><a href="edit.php?id=<?= $row["id"]?>">Sửa</a></td>
-            <td><a data="1" class="delete" href="list.html" type="student">Xóa</a></td>
+            <td><button class="btn btn-danger btn-sm delete" data-url="delete.php?id=<?= $row["id"]?>">Xóa</button></td>
         </tr>
 
 
