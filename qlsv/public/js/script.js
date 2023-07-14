@@ -3,5 +3,4 @@ $(".delete").click(function (e) {
 	var dataUrl = $(this).attr("data-url");
 	$("#confirmModal a").attr("href", dataUrl);
 	$("#confirmModal").modal("show");
-
 });
