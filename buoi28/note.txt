@@ -1,0 +1,12 @@
+OOP: Object Oriented Programing (Lập trình hướng đối tượng)
++ class (lớp - khuôn bánh)
+    + property/attribute dùng để lưu trữ dữ liệu của đối tượng
+    + method (function - hàm)
+
++ Object (đối tượng - cái bánh cụ thể)
+    cái bánh cụ thể = khuôn bánh + nguyên vật liệu
+    đối tượng = lớp + dữ liệu
+    object = class + data
+
+    bên trong class để truy cập vào thuộc tính hoặc hàm thì dùng $this->
+    ngoài hàm thì dùng biến chứa đối tượng $sv1->
