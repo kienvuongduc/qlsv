@@ -1,7 +1,13 @@
 <?php 
     class StudentController {
         function list() {
-            echo "Đây là trang chủ";
+            $studentRepository = new StudentRepository();
+            $students = $studentRepository->getAll();
+            require "view/student/list.php";
+        }
+
+        function add(){
+            require "view/student/add.php";
         }
     }
 ?>
