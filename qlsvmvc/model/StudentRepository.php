@@ -1,6 +1,7 @@
 <?php  //Làm mọi thứ liên quan đến lấy dữ liệu ra, update, delete, insert,...
 
     class StudentRepository {
+        public $error;
         function getAll(){
             global $conn; // phải dùng global để bên trong nhìn thấy biến bên ngoài hàm
             $sql ="SELECT * FROM student";
@@ -13,6 +14,21 @@
                 }   
             }
             return $students;
+        }
+
+        function save($data) {
+            global $conn;
+            $name = $data["name"];
+            $birthday = $data["birthday"];
+            $gender = $data["gender"];
+            $sql = "INSERT INTO student (name, birthday, gender) 
+                    VALUES('$name', '$birthday', $gender)";
+            if($conn->query($sql)) {
+                return true;
+            }
+            $this->error = "Error: $sql <br>" .$conn->error ;
+            return false;
+
         }
     }
 ?>

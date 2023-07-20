@@ -1,4 +1,6 @@
 <?php 
+    session_start();
+
     //load models
     require "config.php";
     require "connect_DB.php";

@@ -10,7 +10,7 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>#</th>
+            <th>STT</th>
             <th>Mã SV</th>
             <th>Tên</th>
             <th>Ngày Sinh</th>
@@ -22,7 +22,7 @@
     <tbody>
         <?php
         $order = 0;
-        foreach ($students as $student): ?>
+        foreach ($students as $student): $order++; ?>
         <tr>
             <td><?=$order?></td>
             <td><?=$student->id?></td>

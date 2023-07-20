@@ -1,6 +1,6 @@
 <?php require "layout/header.php"; ?>
 <h1>Thêm sinh viên</h1>
-			<form action="add.php" method="POST">
+			<form action="/?a=save" method="POST">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-5">
