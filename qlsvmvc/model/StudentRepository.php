@@ -2,9 +2,23 @@
 
     class StudentRepository {
         public $error;
+
+        function getBySearch($search) {
+            $cond = "name LIKE '%$search%'";
+            $students = $this->fetch($cond);
+            return $students;
+        }
+
         function getAll(){
+            return $this->fetch();
+        }
+
+        function fetch($cond = null){
             global $conn; // phải dùng global để bên trong nhìn thấy biến bên ngoài hàm
             $sql ="SELECT * FROM student";
+            if($cond) {
+                $sql .= " WHERE $cond";
+            }
             $result = $conn->query($sql);
             $students = [];
             if($result->num_rows > 0) {
@@ -29,6 +43,37 @@
             $this->error = "Error: $sql <br>" .$conn->error ;
             return false;
 
+        }
+
+        function find($id) {
+            $cond = "id = $id";
+            $students = $this->fetch($cond); // lấy tất cả student
+            $student = current($students); //lấy student tại vị trí con trỏ
+            return $student;
+        }
+
+        function update($student) {
+            global $conn;
+            $name = $student -> name;
+            $birthday = $student -> birthday;
+            $gender = $student -> gender;
+            $id = $student -> id;
+            $sql = "UPDATE student SET name='$name', birthday ='$birthday', gender =$gender WHERE id = $id";
+            if($conn->query($sql)) {
+                return true;
+            }
+            $this->error = "Error: $sql <br>" .$conn->error ;
+            return false;
+        }
+
+        function delete($id) {
+            global $conn;
+            $sql = "DELETE FROM student WHERE id=$id";
+            if($conn->query($sql)) {
+                return true;
+            }
+            $this->error ="Error: $sql <br>" .$conn->error;
+            return false;
         }
     }
 ?>

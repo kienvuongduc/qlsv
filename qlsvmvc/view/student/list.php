@@ -1,9 +1,9 @@
 <?php require "layout/header.php"; ?>
 <h1>Danh sách sinh viên</h1>
 <a href="/?a=add" class="btn btn-info">Add</a>
-<form action="list.html" method="GET">
+<form action="/" method="GET">
     <label class="form-inline justify-content-end">Tìm kiếm: <input type="search" name="search" class="form-control"
-            value="">
+            value="<?=$search?>">
         <button class="btn btn-danger">Tìm</button>
     </label>
 </form>

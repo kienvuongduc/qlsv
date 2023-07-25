@@ -2,25 +2,25 @@
 	require "layout/header.php";
 ?>
 			<h1>Chỉnh sửa sinh viên</h1>
-			<form action="list.html" method="POST">
-				<input type="hidden" name="id" value="1">
+			<form action="/?a=update" method="POST">
+				<input type="hidden" name="id" value="<?= $student->id?>">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-5">
 							<div class="form-group">
 								<label>Tên</label>
-								<input type="text" class="form-control" placeholder="Tên của bạn" required name="name" value="Nguyễn Thị Bé Bảy">
+								<input type="text" class="form-control" placeholder="Tên của bạn" required name="name" value="<?= $student->name?>">
 							</div>
 							<div class="form-group">
 								<label>Birthday</label>
-								<input type="date" class="form-control" placeholder="Ngày sinh của bạn" required name="birthday" value="2000-03-09">
+								<input type="date" class="form-control" placeholder="Ngày sinh của bạn" required name="birthday" value="<?= $student->birthday?>">
 							</div>
 							<div class="form-group">
 								<label>Chọn Giới tính</label>
 								<select class="form-control" id="gender" name="gender" required>
-									<option value="0" >Nam</option>
-									<option value="1" selected>Nữ</option>
-									<option value="2" >Khác</option>
+									<option value="0" <?=$student->gender == 0 ? "selected" : ""?>>Nam</option>
+									<option value="1" <?=$student->gender == 1 ? "selected" : ""?>>Nữ</option>
+									<option value="2" <?=$student->gender == 2 ? "selected" : ""?>>Khác</option>
 								</select>
 							</div>
 							<div class="form-group">
@@ -30,10 +30,4 @@
 					</div>
 				</div>
 			</form>
-			<script src="../public/vendor/jquery-3.5.1.min.js"></script>
-			<script src="../public/vendor/popper.min.js"></script>
-			<script src="../public/vendor/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
-			<script src="../public/js/script.js"></script>
-		</div>
-	</body>
-</html>
+			<?php require "layout/footer.php" ?>
